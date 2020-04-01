@@ -55,6 +55,8 @@ func New(items interface{}, size int) (*List, error) {
 func (l *List) Prev() {
 	if l.cursor > 0 {
 		l.cursor--
+	} else if l.cursor == 0 {
+		l.cursor = len(l.scope) - 1
 	}
 
 	if l.start > l.cursor {
@@ -136,6 +138,8 @@ func (l *List) Next() {
 
 	if l.cursor < max {
 		l.cursor++
+	} else if l.cursor == max {
+		l.cursor = 0
 	}
 
 	if l.start+l.size <= l.cursor {
@@ -249,4 +253,3 @@ func (l *List) Go(i int) {
 		}
 	}
 }
-
