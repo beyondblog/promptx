@@ -221,7 +221,7 @@ func (l *List) Index() int {
 func (l *List) Items() ([]interface{}, int) {
 	var result []interface{}
 	max := len(l.scope)
-	end := l.start + l.size
+	end := l.start + l.size + 1
 
 	if end > max {
 		end = max
@@ -229,7 +229,7 @@ func (l *List) Items() ([]interface{}, int) {
 
 	active := NotFound
 
-	for i, j := l.start, 0; i < end; i, j = i+1, j+1 {
+	for i, j := 0, 0; i < end; i, j = i+1, j+1 {
 		if l.cursor == i {
 			active = j
 		}

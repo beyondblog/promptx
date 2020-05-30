@@ -122,6 +122,7 @@ func (s *Select) writeData(l *list.List) {
 			s.buf.Write(utils.Render(s.inactive, item))
 		}
 	}
+
 	// detail
 	s.buf.Write(utils.Render(s.details, items[idx]))
 
